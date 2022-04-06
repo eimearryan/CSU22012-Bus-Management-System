@@ -13,17 +13,18 @@ public class UserInterface {
 			System.out.print("\nPlease choose from the options below which program you would like to run or type 'exit':\n"
 					+ "1 - Find the shortest path between two bus stops\n"
 					+ "2 - Find full stop information for a given stop\n"
-					+ "3 - Find full trip infomration for all trips with a given arrival time\n" + "- ");
+					+ "3 - Find full trip infomration for all trips with a given arrival time\n" + "---> ");
 
 			Scanner input = new Scanner(System.in);
 			String userInput = input.next();
 
-
+			//******* PART 1 *******\\
 			if (userInput.equals("1")) {
-				System.out.println("option1");
+				System.out.println("Part 1 of project not complete");
 
 			}
 
+			//******* PART 2 *******\\
 			else if (userInput.equals("2")) {	
 				boolean finished2 = false;
 				while(!finished2) {
@@ -45,6 +46,7 @@ public class UserInterface {
 				}  
 			}
 
+			//******* PART 3 *******\\
 			else if (userInput.equals("3")) {		
 				File stopTimes = new File("stop_times.txt");
 				ArrayList<String> validStopTimes = new ArrayList<String>();
@@ -54,7 +56,7 @@ public class UserInterface {
 
 				boolean finished3 = false;
 				while(!finished3) {
-					System.out.print("Enter the time you wish to arrive (in the form hh:mm:ss)\n"
+					System.out.print("\nEnter the time you wish to arrive (in the form hh:mm:ss)\n"
 							+ "or 'exit' to go back:");
 
 					Scanner scanner = new Scanner(System.in);
@@ -79,28 +81,25 @@ public class UserInterface {
 							}		
 						}
 						if(count==0) {
-							System.out.println("Sorry, no stops match your desired arrival time.");
+							System.out.println("\nSorry, no stops match your desired arrival time.");
 						}else {
 							ArrivalTimes.showTripDetails(desiredTripDetails);
 						}
 					}
 					else {
-						System.out.println("Please enter a valid time\n"
-								+ "\"or 'exit' to go back:");
+						System.out.println("\nThis is an invalid time.");
 					}
 				}		
 			}
 
 			
-			
+			//******* EXIT PROJECT *******\\
 			else if (userInput.equals("exit")) {
 				System.out.println("Have a nice day!");
 				finished = true;
 			}
 			
-			
-			
-
+			//******* ERROR *******\\
 			else {
 				System.out.println("Invalid option\n");
 			}
