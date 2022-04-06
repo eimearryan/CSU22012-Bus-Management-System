@@ -42,8 +42,8 @@ public class TST<Value> {
 
 			String meaningfulStop = meaningfulStopName(stopName);
 
-			String stopInformation = "Stop id: " + stopDetails[0] + ",\nStop Code: " + stopDetails[1] + ",\nStop Desc: " + stopDetails[3] +
-					 ",\nStop Lat: " + stopDetails[4] + ",\nStop Lon: " + stopDetails[5] + ",\nZone id: " + stopDetails[6];
+			String stopInformation = "\nStop id: " + stopDetails[0] + ",\nStop Code: " + stopDetails[1] + ",\nStop Desc: " + stopDetails[3] +
+					 ",\nStop Lat: " + stopDetails[4] + ",\nStop Lon: " + stopDetails[5] + ",\nZone id: " + stopDetails[6] + "\n";
 	
 			tree.put(meaningfulStop, stopInformation);
 		}
@@ -56,7 +56,6 @@ public class TST<Value> {
 		String userInput = userInputScanner.nextLine();
 		userInput = userInput.toUpperCase();
 
-		System.out.println(userInput);
 
 		if (choice == 0)
 		{ 
@@ -82,7 +81,7 @@ public class TST<Value> {
 				System.out.println("Bus stop entered does not exist \nPlease enter a valid Bus Stop: ");
 			}
 			else {
-				System.out.println("Information for entered bus stop:" + info);
+				System.out.println("Information for entered bus stop:\n" + info);
 			}
 		}
 		
@@ -109,9 +108,9 @@ public class TST<Value> {
 			return stopName;
 	}
 
-//	public TST() {
-//
-//	}
+	public TST() {
+
+	}
 
 	public int size() {
 		return n;
