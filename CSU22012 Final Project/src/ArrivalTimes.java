@@ -3,6 +3,7 @@ import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Scanner;
 
 /*
@@ -17,7 +18,8 @@ public class ArrivalTimes {
 
 		File stopTimes = new File("stop_times.txt");
 		ArrayList<String> validStopTimes = new ArrayList<String>();
-
+		ArrayList<String> desiredTripDetails = new ArrayList<String>();
+		
 		removeInvalidTimes(stopTimes, validStopTimes);
 
 		boolean finished = false;
@@ -37,12 +39,15 @@ public class ArrivalTimes {
 
 
 					if (userInput.trim().equals(str[1].trim())) {		
-						showTripDetails(str);
+						desiredTripDetails.add(tripDetails);
 						count++;
-					}			
+					}		
 				}
 				if(count==0) {
 					System.out.println("Sorry, no stops match your desired arrival time.");
+				}else {
+					//sortByTripId(desiredTripDetails);
+					showTripDetails(desiredTripDetails);
 				}
 
 			}
@@ -89,17 +94,60 @@ public class ArrivalTimes {
 		}	
 
 	}
+	
+	public static String[][] sortByTripId(ArrayList<String> arrayList) {
+			
 
-	public static void showTripDetails(String[] str) {
+		// create the 2D array
+		String[][] allValid = new String[arrayList.size()][8];
 
-		String tripID = str[0];
-		String arrivalTime = str[1];
-		String departureTime = str[2];
-		String stopID = str[3];
-		String stopSequence = str[4];
-		String stopHeadsign = str[5];
-		String pickupType = str[6];
-		String dropOffType = str[7];
+		for(int row=0; row < arrayList.size();row++) {
+			String tripDetails = arrayList.get(row);
+			String[] str = tripDetails.split(",");
+					
+			for (int col = 0; col < allValid[row].length; col++) {
+				allValid[row][col] = str[col];
+				
+			}
+		}
+			
+		// sort the 2D array
+		// bubble sort
+		  boolean sorted = false;
+	        String[] temp;
+	        while (!sorted) {
+	            sorted = true;
+	            for (int i = 0; i < allValid.length - 1; i++) {
+	                int int_i = Integer.parseInt(allValid[i][0]);
+	                int int_i_1 = Integer.parseInt(allValid[i + 1][0]);
+	                if (int_i > int_i_1) {
+	                    temp = allValid[i];
+	                    allValid[i] = allValid[i + 1];
+	                    allValid[i + 1] = temp;
+	                    sorted = false;
+	                }
+	            }
+	        }
+	        return allValid;        	
+	}
+	
+
+	public static void showTripDetails(ArrayList<String> ArrayList) {
+
+		
+		String [][] trips = sortByTripId(ArrayList);
+		
+		for(int i=0; i< trips.length;i++) {
+
+	
+		String tripID = trips[i][0];
+		String arrivalTime = trips[i][1];
+		String departureTime = trips[i][2];
+		String stopID = trips[i][3];
+		String stopSequence = trips[i][4];
+		String stopHeadsign = trips[i][5];
+		String pickupType = trips[i][6];
+		String dropOffType = trips[i][7];
 		//	String shapeDistTraveled = str[8];
 
 		System.out.println("Trip ID: "+tripID+"\n"+
@@ -112,6 +160,9 @@ public class ArrivalTimes {
 				"Dropoff Type: "+dropOffType+"\n"
 				//	"Shape Distance Travelled: "+shapeDistTraveled+"\n\n"
 				);
+				
+		}
 	}
 
 }
+		
