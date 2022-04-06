@@ -11,7 +11,7 @@ import java.util.Scanner;
  *	criteria (zero, one or more), sorted by trip id
  *	Arrival time should be provided by the user as hh:mm:ss. When reading in stop_times.txt file you
  *	will need to remove all invalid times, e.g., there are times in the file that start at 27/28 hours, so are
- *	learly invalid. Maximum time allowed is 23:59:59. 
+ *	clearly invalid. Maximum time allowed is 23:59:59. 
  */
 public class ArrivalTimes {
 	public static void main(String[] args) throws FileNotFoundException {
@@ -19,7 +19,7 @@ public class ArrivalTimes {
 		File stopTimes = new File("stop_times.txt");
 		ArrayList<String> validStopTimes = new ArrayList<String>();
 		ArrayList<String> desiredTripDetails = new ArrayList<String>();
-		
+
 		removeInvalidTimes(stopTimes, validStopTimes);
 
 		boolean finished = false;
@@ -46,10 +46,8 @@ public class ArrivalTimes {
 				if(count==0) {
 					System.out.println("Sorry, no stops match your desired arrival time.");
 				}else {
-					//sortByTripId(desiredTripDetails);
 					showTripDetails(desiredTripDetails);
 				}
-
 			}
 			else {
 				System.out.println("Please enter a valid time:");
@@ -95,8 +93,37 @@ public class ArrivalTimes {
 
 	}
 	
+	public static void showTripDetails(ArrayList<String> ArrayList) {
+
+		String [][] trips = sortByTripId(ArrayList);	
+		for(int i=0; i< trips.length;i++) {
+
+			String tripID = trips[i][0];
+			String arrivalTime = trips[i][1];
+			String departureTime = trips[i][2];
+			String stopID = trips[i][3];
+			String stopSequence = trips[i][4];
+			String stopHeadsign = trips[i][5];
+			String pickupType = trips[i][6];
+			String dropOffType = trips[i][7];
+			//	String shapeDistTraveled = str[8];
+
+			System.out.println("Trip ID: "+tripID+"\n"+
+					"Arrival Time: "+arrivalTime+"\n"+
+					"Departure Time: "+departureTime+"\n"+
+					"Stop ID: "+stopID+"\n"+
+					"Stop Sequence: "+stopSequence+"\n"+
+					"Stop Headsign: "+stopHeadsign+"\n"+
+					"Pickup Type: "+pickupType+"\n"+
+					"Dropoff Type: "+dropOffType+"\n"
+					//	"Shape Distance Travelled: "+shapeDistTraveled+"\n\n"
+					);
+
+		}
+	}
+
+
 	public static String[][] sortByTripId(ArrayList<String> arrayList) {
-			
 
 		// create the 2D array
 		String[][] allValid = new String[arrayList.size()][8];
@@ -104,65 +131,30 @@ public class ArrivalTimes {
 		for(int row=0; row < arrayList.size();row++) {
 			String tripDetails = arrayList.get(row);
 			String[] str = tripDetails.split(",");
-					
+
 			for (int col = 0; col < allValid[row].length; col++) {
 				allValid[row][col] = str[col];
-				
+
 			}
 		}
-			
+
 		// sort the 2D array
 		// bubble sort
-		  boolean sorted = false;
-	        String[] temp;
-	        while (!sorted) {
-	            sorted = true;
-	            for (int i = 0; i < allValid.length - 1; i++) {
-	                int int_i = Integer.parseInt(allValid[i][0]);
-	                int int_i_1 = Integer.parseInt(allValid[i + 1][0]);
-	                if (int_i > int_i_1) {
-	                    temp = allValid[i];
-	                    allValid[i] = allValid[i + 1];
-	                    allValid[i + 1] = temp;
-	                    sorted = false;
-	                }
-	            }
-	        }
-	        return allValid;        	
-	}
-	
-
-	public static void showTripDetails(ArrayList<String> ArrayList) {
-
-		
-		String [][] trips = sortByTripId(ArrayList);
-		
-		for(int i=0; i< trips.length;i++) {
-
-	
-		String tripID = trips[i][0];
-		String arrivalTime = trips[i][1];
-		String departureTime = trips[i][2];
-		String stopID = trips[i][3];
-		String stopSequence = trips[i][4];
-		String stopHeadsign = trips[i][5];
-		String pickupType = trips[i][6];
-		String dropOffType = trips[i][7];
-		//	String shapeDistTraveled = str[8];
-
-		System.out.println("Trip ID: "+tripID+"\n"+
-				"Arrival Time: "+arrivalTime+"\n"+
-				"Departure Time: "+departureTime+"\n"+
-				"Stop ID: "+stopID+"\n"+
-				"Stop Sequence: "+stopSequence+"\n"+
-				"Stop Headsign: "+stopHeadsign+"\n"+
-				"Pickup Type: "+pickupType+"\n"+
-				"Dropoff Type: "+dropOffType+"\n"
-				//	"Shape Distance Travelled: "+shapeDistTraveled+"\n\n"
-				);
-				
+		boolean sorted = false;
+		String[] temp;
+		while (!sorted) {
+			sorted = true;
+			for (int i = 0; i < allValid.length - 1; i++) {
+				int currentID = Integer.parseInt(allValid[i][0]);
+				int nextID = Integer.parseInt(allValid[i + 1][0]);
+				if (currentID > nextID) {
+					temp = allValid[i];
+					allValid[i] = allValid[i + 1];
+					allValid[i + 1] = temp;
+					sorted = false;
+				}
+			}
 		}
+		return allValid;        	
 	}
-
 }
-		
