@@ -15,9 +15,7 @@ import java.util.Scanner;
  */
 public class ArrivalTimes {
 		
-
 	public static boolean checkValidTime(String input) {
-
 		boolean valid;
 		String arrivalTime = input;
 		String[] str = arrivalTime.split(":");
