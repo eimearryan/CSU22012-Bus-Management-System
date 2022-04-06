@@ -23,26 +23,6 @@ public class TST<Value> {
 		private char c;                        
 		private Node<Value> left, mid, right;  
 		private Value val;                     
-
-
-		public static void main(String[] args) throws IOException {
-
-			boolean finished = false;
-			
-			while(!finished) {
-			System.out.print("Enter 0 if you would like to Search by full bus name or\n1 if you would like to search by first word in bus stop name: \n");
-			Scanner input = new Scanner(System.in);
-			int choice = input.nextInt();
-			
-			if (choice == 0 || choice == 1)
-			{
-				TST.BusStopTST(choice);
-			}
-			else {
-				System.out.print("Please enter a valid choice\n");
-			}
-		}  
-		}
 	}
 
 
@@ -67,6 +47,8 @@ public class TST<Value> {
 	
 			tree.put(meaningfulStop, stopInformation);
 		}
+		
+		
 
 		Scanner userInputScanner = new Scanner(System.in);
 		System.out.print("Enter the name of the bus stop you wish to search for:\n");
@@ -127,9 +109,9 @@ public class TST<Value> {
 			return stopName;
 	}
 
-	public TST() {
-
-	}
+//	public TST() {
+//
+//	}
 
 	public int size() {
 		return n;

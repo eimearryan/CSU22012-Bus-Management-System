@@ -14,46 +14,7 @@ import java.util.Scanner;
  *	clearly invalid. Maximum time allowed is 23:59:59. 
  */
 public class ArrivalTimes {
-	public static void main(String[] args) throws FileNotFoundException {
-
-		File stopTimes = new File("stop_times.txt");
-		ArrayList<String> validStopTimes = new ArrayList<String>();
-		ArrayList<String> desiredTripDetails = new ArrayList<String>();
-
-		removeInvalidTimes(stopTimes, validStopTimes);
-
-		boolean finished = false;
-		while(!finished) {
-			System.out.print("Enter the time you wish to arrive (in the form hh:mm:ss):\n");
-
-			Scanner scanner = new Scanner(System.in);
-			String userInput = scanner.nextLine();
-
-			boolean validTime = checkValidTime(userInput);
-
-			if(validTime) {
-				int count = 0;
-				for(int i = 0; i<validStopTimes.size();i++) {
-					String tripDetails = validStopTimes.get(i);
-					String[] str = tripDetails.split(",");
-
-
-					if (userInput.trim().equals(str[1].trim())) {		
-						desiredTripDetails.add(tripDetails);
-						count++;
-					}		
-				}
-				if(count==0) {
-					System.out.println("Sorry, no stops match your desired arrival time.");
-				}else {
-					showTripDetails(desiredTripDetails);
-				}
-			}
-			else {
-				System.out.println("Please enter a valid time:");
-			}
-		}
-	}	
+		
 
 	public static boolean checkValidTime(String input) {
 
