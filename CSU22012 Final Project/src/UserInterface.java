@@ -91,10 +91,15 @@ public class UserInterface {
 				}		
 			}
 
+			
+			
 			else if (userInput.equals("exit")) {
 				System.out.println("Have a nice day!");
 				finished = true;
 			}
+			
+			
+			
 
 			else {
 				System.out.println("Invalid option\n");
