@@ -1,7 +1,10 @@
-# [CSU22012 Final Project](https://github.com/eimearryan/CSU22012-Final-Project/tree/main/CSU22012%20Final%20Project)
+# CSU22012 Final Project
+
+## Link to Project 
+[CSU22012 Final Project](https://github.com/eimearryan/CSU22012-Final-Project/tree/main/CSU22012%20Final%20Project)
 
 ## Project Specification
-[CSU22012_ProjectSpecification.pdf]()
+[CSU22012_ProjectSpecification.pdf](https://github.com/eimearryan/CSU22012-Final-Project/blob/main/CSU22012_ProjectSpecification.pdf)
 
 ## Student Details
 
