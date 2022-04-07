@@ -57,8 +57,11 @@ public class TST<Value> {
 		userInput = userInput.toUpperCase();
 
 
+	
+
 		if (choice == 0)
 		{ 
+			userInput = meaningfulStopName(userInput);
 			if(tree.contains(userInput))
 			{
 				System.out.println("Information for entered bus stop: " + "\n" + userInput + "\n" + tree.get(userInput));

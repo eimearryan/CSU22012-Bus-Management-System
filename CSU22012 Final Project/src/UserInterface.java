@@ -29,16 +29,17 @@ public class UserInterface {
 				boolean finished2 = false;
 				while(!finished2) {
 					System.out.print("Enter 0 if you would like to Search by full bus name or\n1 if you would like to "
-							+ "search by first word in bus stop name\nor 2 if you would like to go back: \n");
+							+ "search by first word in bus stop name\nor 'exit' if you would like to go back: \n");
 					Scanner input2 = new Scanner(System.in);
-					int choice = input2.nextInt();
+					String choice = input2.nextLine();
 
-					if (choice == 0 || choice == 1)
-					{
-						TST.BusStopTST(choice);
-					}
-					else if(choice == 2) {
+					
+					if(choice.equals("exit")){
 						break;
+					}
+					else if (Integer.parseInt(choice) == 0 || Integer.parseInt(choice) == 1)
+					{
+						TST.BusStopTST(Integer.parseInt(choice));
 					}
 					else {
 						System.out.print("Please enter a valid choice\n");
