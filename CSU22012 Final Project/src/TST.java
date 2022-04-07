@@ -26,7 +26,7 @@ public class TST<Value> {
 	}
 
 
-	public static void BusStopTST(int choice) throws FileNotFoundException
+	public static void BusStopTST(String inputStop) throws FileNotFoundException
 	{
 		TST<String> tree = new TST<String>();
 		String line = "";
@@ -48,47 +48,19 @@ public class TST<Value> {
 			tree.put(meaningfulStop, stopInformation);
 		}
 		
-		
 
-		Scanner userInputScanner = new Scanner(System.in);
-		System.out.print("Enter the name of the bus stop you wish to search for:\n");
-
-		String userInput = userInputScanner.nextLine();
-		userInput = userInput.toUpperCase();
-
-
-	
-
-		if (choice == 0)
-		{ 
-			userInput = meaningfulStopName(userInput);
-			if(tree.contains(userInput))
-			{
-				System.out.println("Information for entered bus stop: " + "\n" + userInput + "\n" + tree.get(userInput));
-			}
-			else
-			{	
-				System.out.println("Bus stop entered does not exist \n" + 
-						"Please enter a valid Bus Stop");
-			}
-		}
-
-		else if (choice == 1) {
 			String info = "";
-			for (String s : tree.keysWithPrefix(userInput)) {
+			for (String s : tree.keysWithPrefix(inputStop)) {
 				info += s+tree.get(s) + "\n";
 			}
 
 			if (info == "")
 			{
-				System.out.println("Bus stop entered does not exist \nPlease enter a valid Bus Stop: ");
+				System.out.println("Sorry, there is no stop information to match your entered stop,\nplease enter a valid bus stop next time. ");
 			}
 			else {
 				System.out.println("Information for entered bus stop:\n" + info);
 			}
-		}
-		
-
 	}
 
 	public static String meaningfulStopName(String stopName) {

@@ -28,8 +28,7 @@ public class UserInterface {
 			else if (userInput.equals("2")) {	
 				boolean finished2 = false;
 				while(!finished2) {
-					System.out.print("Enter 0 if you would like to Search by full bus name or\n1 if you would like to "
-							+ "search by first word in bus stop name\nor 'exit' if you would like to go back: \n");
+					System.out.print("\nEnter the name of the bus stop you wish to search for:\nor 'exit' to go back:\n");
 					Scanner input2 = new Scanner(System.in);
 					String choice = input2.nextLine();
 
@@ -37,13 +36,12 @@ public class UserInterface {
 					if(choice.equals("exit")){
 						break;
 					}
-					else if (Integer.parseInt(choice) == 0 || Integer.parseInt(choice) == 1)
+					else
 					{
-						TST.BusStopTST(Integer.parseInt(choice));
+						String userInput2 = choice.toUpperCase();
+						TST.BusStopTST(userInput2);
 					}
-					else {
-						System.out.print("Please enter a valid choice\n");
-					}
+					
 				}  
 			}
 
