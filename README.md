@@ -1,6 +1,4 @@
-# CSU22012 Final Project
-
-[Link to Repository](https://github.com/eimearryan/CSU22012-Final-Project)
+# [CSU22012 Final Project](https://github.com/eimearryan/CSU22012-Final-Project)
 
 ## Student Details
 
