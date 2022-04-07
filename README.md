@@ -1,8 +1,6 @@
 # CSU22012 Final Project
 
-## Link to Repository
-
-[Link](https://github.com/eimearryan/CSU22012-Final-Project)
+[Link to Repository](https://github.com/eimearryan/CSU22012-Final-Project)
 
 ## Student Details
 
@@ -14,7 +12,7 @@
 ## Summary of project
 
 * Implementation of a bus management system based on Vancouver bus system data (which was previously obtained by using TransLink open API
-[Link](https://developer.translink.ca/))
+[(Link)](https://developer.translink.ca/))
 * The bus management system provides the following functionality:
 
     1) Finding shortest paths between 2 bus stops (as input by the user), returning the list of stops
