@@ -49,13 +49,15 @@ public class UserInterface {
 			//******* PART 3 *******\\
 			else if (userInput.equals("3")) {		
 				File stopTimes = new File("stop_times.txt");
-				ArrayList<String> validStopTimes = new ArrayList<String>();
-				ArrayList<String> desiredTripDetails = new ArrayList<String>();
-
-				ArrivalTimes.removeInvalidTimes(stopTimes, validStopTimes);
+		
 
 				boolean finished3 = false;
-				while(!finished3) {
+				while(!finished) {
+				ArrayList<String> validStopTimes = new ArrayList<String>();
+				ArrayList<String> desiredTripDetails = new ArrayList<String>();
+				
+				ArrivalTimes.removeInvalidTimes(stopTimes, validStopTimes);
+			
 					System.out.print("\nEnter the time you wish to arrive (in the form hh:mm:ss)\n"
 							+ "or 'exit' to go back:");
 
@@ -89,7 +91,7 @@ public class UserInterface {
 					else {
 						System.out.println("\nThis is an invalid time.");
 					}
-				}		
+				}	
 			}
 
 			
