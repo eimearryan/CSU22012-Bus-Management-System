@@ -34,5 +34,5 @@
 
 
 ## Design Document 
-
+[Design Document.pdf](https://github.com/eimearryan/CSU22012-Final-Project/blob/main/Design%20Document.pdf)
 
