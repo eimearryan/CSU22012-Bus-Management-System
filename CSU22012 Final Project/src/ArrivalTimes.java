@@ -1,4 +1,4 @@
-import java.io.File;
+ import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
@@ -13,6 +13,7 @@ import java.util.Scanner;
  *	will need to remove all invalid times, e.g., there are times in the file that start at 27/28 hours, so are
  *	clearly invalid. Maximum time allowed is 23:59:59. 
  */
+
 public class ArrivalTimes {
 		
 	public static boolean checkValidTime(String input) {
