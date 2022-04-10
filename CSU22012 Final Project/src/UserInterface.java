@@ -7,14 +7,12 @@ import java.util.Scanner;
 public class UserInterface {
 	public static void main(String[] args) throws FileNotFoundException {
 
-
-
 		boolean finished = false;
 		while(!finished) {
-			System.out.print("\nPlease choose from the options below which program you would like to run or type 'exit':\n"
+			System.out.print("\nPlease choose from the options below which program you would like to run or type 'exit' to leave the system:\n"
 					+ "1 - Find the shortest path between two bus stops\n"
 					+ "2 - Find full stop information for a given stop\n"
-					+ "3 - Find full trip infomration for all trips with a given arrival time\n" + "---> ");
+					+ "3 - Find full trip information for all trips with a given arrival time\n" + "---> ");
 
 			Scanner input = new Scanner(System.in);
 			String userInput = input.next();
@@ -150,6 +148,8 @@ public class UserInterface {
 					if (userInput3.equals("exit")) {
 						break;
 					}
+					
+					
 					boolean validTime = ArrivalTimes.checkValidTime(userInput3);
 
 					if(validTime) {
